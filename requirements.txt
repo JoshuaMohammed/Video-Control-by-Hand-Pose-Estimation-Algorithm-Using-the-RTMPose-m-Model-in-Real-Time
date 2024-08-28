@@ -1,0 +1,39 @@
+RTMPose mode:
+rtmpose-m_8xb32-210e_coco-wholebody-hand-256x256
+
+RTMPose weights Checkpoint:
+https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-m_simcc-hand5_ptaic-coco_210e-256x256-74fb594_20230320.pth
+
+
+# Create a new conda environment with Python 3.9
+conda create --name openmmlab python=3.9 -y
+conda activate openmmlab
+
+# Install PyTorch and torchvision with CUDA 11.3 (adjust as needed)
+conda install pytorch=1.11.0 torchvision=0.12.0 cudatoolkit=11.3 -c
+pytorch
+
+# Install OpenMIM
+pip install -U openmim
+
+# Install mmengine
+mim install mmengine==0.2.0
+
+# Install MMCV
+mim install "mmcv>=2.0.1,<2.1.0"
+
+# Install MMDetection
+mim install "mmdet>=3.1.0,<3.2.0"
+
+# Clone the MMPose repository
+git clone https://github.com/open-mmlab/mmpose.git
+cd mmpose
+
+# Install the dependencies for MMPose
+pip install -r requirements.txt
+
+# Install MMPose in editable mode
+pip install -v -e .
+
+# Install MMPose using OpenMIM
+mim install "mmpose>=1.1.0,<1.2.0"
